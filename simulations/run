@@ -1,4 +1,4 @@
 #!/bin/sh
 cd `dirname $0`
-../src/ds_ex3_dfs -n .:../src $*
+../src/ds.ex3.dfs -n .:../src $*
 # for shared lib, use: opp_run -l ../src/ds_ex3_dfs -n .:../src $*

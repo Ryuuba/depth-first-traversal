@@ -18,6 +18,7 @@
 
 #include <omnetpp.h>
 #include <cstdint>
+#include <string>
 
 class DFTraversal : public omnetpp::cSimpleModule {
   public:
@@ -46,11 +47,17 @@ class DFTraversal : public omnetpp::cSimpleModule {
     omnetpp::cMessage* token;
     /** @brief The timer that starts the communications process */
     omnetpp::cMessage* timer;
-    /** @brief The set of unvisited neighbors (64 neighbors at max) */
+    /** @brief The set of unvisited neighbors (64 neighbors at max). Think
+     * this integer as a boolean array. 
+     */
     uint64_t unvisitedNeighbors;
+    // /** @brief The mask to access the index the last contacted neighbor */
+    // uint64_t mask;
+    // /** @brief The size of the neighborhood */
+    // int neighborhoodSize;
   protected:
     /** @brief Prints the node state in de simulation canvas */
-    //virtual void refreshDisplay() const override;
+    virtual void refreshDisplay() const override;
     /** @brief A member function that senders call to contact their neighbors */
     virtual void visit(omnetpp::cMessage*);
   public:

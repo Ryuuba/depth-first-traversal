@@ -57,6 +57,7 @@ void DFTraversal::handleMessage(omnetpp::cMessage* recvMsg) {
       EV_INFO << "Receiving token from port " << senderPort << '\n';
       unvisitedNeighbors -= (1 << senderPort);
       recvMsg->setKind(MsgKind::BACKEDGE);
+      recvMsg->setName("backedge");
       send(recvMsg, "port$o", senderPort);
       EV_INFO << "Node " << getIndex() << " send the token through port "
               << senderPort << '\n';
@@ -73,15 +74,16 @@ void DFTraversal::handleMessage(omnetpp::cMessage* recvMsg) {
     error("Invalid status");
 }
 
+
+//TODO: save the last contacted neighbor as well as the mask to optimize
+//the extraction on an unvisited neighbor
 void DFTraversal::visit(omnetpp::cMessage* msg) {
   uint64_t mask = 1;
   const int neighborhoodSize = gateSize("port$o");
   if (unvisitedNeighbors > 0) {
     int nextNeighbor = 0;
+    // Extract a neighbor from unvisitedNeighbors
     for (int i = 0; i < neighborhoodSize; i++) {
-      EV_INFO << "Node " << getIndex() << ": "
-              << mask << " & " << unvisitedNeighbors << " = "
-              << (mask&unvisitedNeighbors) << '\n';
       if (unvisitedNeighbors & mask) {
         nextNeighbor = i;
         unvisitedNeighbors -= mask;
@@ -92,18 +94,41 @@ void DFTraversal::visit(omnetpp::cMessage* msg) {
         mask = mask << 1;
     }
     msg->setKind(MsgKind::TOKEN);
+    msg->setName("token");
     send(msg, "port$o", nextNeighbor);
     EV_INFO << "Node " << getIndex() << " send the token through port "
             << nextNeighbor << '\n';
     status = Status::VISITED;
   }
   else {
-    if (!initiator) {
+    if (initiator)
+      delete msg;
+    else {
       msg->setKind(MsgKind::RETURN);
+      msg->setName("return");
       send(msg, "port$o", emisor);
       EV_INFO << "Node " << getIndex() << " send the token through port "
               << emisor << '\n';
     }
     status = Status::DONE;
   }
+}
+
+void DFTraversal::refreshDisplay() const {
+  std::string info("Status: ");
+  switch (status)
+  {
+  case Status::INITIATOR:
+    info += "initiator";
+    break;
+  case Status::UNVISITED:
+    info += "unvisited";
+    break;
+  case Status::VISITED:
+    info += "visited";
+    break;
+  default:
+    info += "done";
+  }
+  getDisplayString().setTagArg("t", 0, info.c_str());
 }
