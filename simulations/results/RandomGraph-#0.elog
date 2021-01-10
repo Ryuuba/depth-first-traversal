@@ -1,0 +1,295 @@
+E # 0 t 0 m 1 ce -1 msg -1
+SB v 1286 rid RandomGraph-0-20210109-23:42:16-5777 b 1000
+KF p -1 c "" s ""
+MC id 1 c omnetpp::cModule t ds_ex3_dfs.simulations.RandomGraph n RandomGraph cm 1
+MS id 1 d bgb=300,300
+MC id 2 c DFTraversal t ds_ex3_dfs.DFTraversal pid 1 n node[0]
+MS id 2 d i=device/laptop
+MC id 3 c DFTraversal t ds_ex3_dfs.DFTraversal pid 1 n node[1]
+MS id 3 d i=device/laptop
+MC id 4 c DFTraversal t ds_ex3_dfs.DFTraversal pid 1 n node[2]
+MS id 4 d i=device/laptop
+MC id 5 c DFTraversal t ds_ex3_dfs.DFTraversal pid 1 n node[3]
+MS id 5 d i=device/laptop
+MC id 6 c DFTraversal t ds_ex3_dfs.DFTraversal pid 1 n node[4]
+MS id 6 d i=device/laptop
+GC m 2 g 1048576 n port$i i 0 o 0
+GC m 2 g 1572864 n port$o i 0 o 1
+GC m 3 g 1048576 n port$i i 0 o 0
+GC m 3 g 1572864 n port$o i 0 o 1
+CC sm 2 sg 1572864 dm 3 dg 1048576
+CS sm 2 sg 1572864 d ""
+CC sm 3 sg 1572864 dm 2 dg 1048576
+CS sm 3 sg 1572864 d ""
+GC m 2 g 1048577 n port$i i 1 o 0
+GC m 2 g 1572865 n port$o i 1 o 1
+GC m 4 g 1048576 n port$i i 0 o 0
+GC m 4 g 1572864 n port$o i 0 o 1
+CC sm 2 sg 1572865 dm 4 dg 1048576
+CS sm 2 sg 1572865 d ""
+CC sm 4 sg 1572864 dm 2 dg 1048577
+CS sm 4 sg 1572864 d ""
+GC m 2 g 1048578 n port$i i 2 o 0
+GC m 2 g 1572866 n port$o i 2 o 1
+GC m 5 g 1048576 n port$i i 0 o 0
+GC m 5 g 1572864 n port$o i 0 o 1
+CC sm 2 sg 1572866 dm 5 dg 1048576
+CS sm 2 sg 1572866 d ""
+CC sm 5 sg 1572864 dm 2 dg 1048578
+CS sm 5 sg 1572864 d ""
+GC m 2 g 1048579 n port$i i 3 o 0
+GC m 2 g 1572867 n port$o i 3 o 1
+GC m 6 g 1048576 n port$i i 0 o 0
+GC m 6 g 1572864 n port$o i 0 o 1
+CC sm 2 sg 1572867 dm 6 dg 1048576
+CS sm 2 sg 1572867 d ""
+CC sm 6 sg 1572864 dm 2 dg 1048579
+CS sm 6 sg 1572864 d ""
+GC m 3 g 1048577 n port$i i 1 o 0
+GC m 3 g 1572865 n port$o i 1 o 1
+GC m 4 g 1048577 n port$i i 1 o 0
+GC m 4 g 1572865 n port$o i 1 o 1
+CC sm 3 sg 1572865 dm 4 dg 1048577
+CS sm 3 sg 1572865 d ""
+CC sm 4 sg 1572865 dm 3 dg 1048577
+CS sm 4 sg 1572865 d ""
+GC m 3 g 1048578 n port$i i 2 o 0
+GC m 3 g 1572866 n port$o i 2 o 1
+GC m 5 g 1048577 n port$i i 1 o 0
+GC m 5 g 1572865 n port$o i 1 o 1
+CC sm 3 sg 1572866 dm 5 dg 1048577
+CS sm 3 sg 1572866 d ""
+CC sm 5 sg 1572865 dm 3 dg 1048578
+CS sm 5 sg 1572865 d ""
+GC m 3 g 1048579 n port$i i 3 o 0
+GC m 3 g 1572867 n port$o i 3 o 1
+GC m 6 g 1048577 n port$i i 1 o 0
+GC m 6 g 1572865 n port$o i 1 o 1
+CC sm 3 sg 1572867 dm 6 dg 1048577
+CS sm 3 sg 1572867 d ""
+CC sm 6 sg 1572865 dm 3 dg 1048579
+CS sm 6 sg 1572865 d ""
+GC m 4 g 1048578 n port$i i 2 o 0
+GC m 4 g 1572866 n port$o i 2 o 1
+GC m 5 g 1048578 n port$i i 2 o 0
+GC m 5 g 1572866 n port$o i 2 o 1
+CC sm 4 sg 1572866 dm 5 dg 1048578
+CS sm 4 sg 1572866 d ""
+CC sm 5 sg 1572866 dm 4 dg 1048578
+CS sm 5 sg 1572866 d ""
+GC m 4 g 1048579 n port$i i 3 o 0
+GC m 4 g 1572867 n port$o i 3 o 1
+GC m 6 g 1048578 n port$i i 2 o 0
+GC m 6 g 1572866 n port$o i 2 o 1
+CC sm 4 sg 1572867 dm 6 dg 1048578
+CS sm 4 sg 1572867 d ""
+CC sm 6 sg 1572866 dm 4 dg 1048579
+CS sm 6 sg 1572866 d ""
+GC m 5 g 1048579 n port$i i 3 o 0
+GC m 5 g 1572867 n port$o i 3 o 1
+GC m 6 g 1048579 n port$i i 3 o 0
+GC m 6 g 1572867 n port$o i 3 o 1
+CC sm 5 sg 1572867 dm 6 dg 1048579
+CS sm 5 sg 1572867 d ""
+CC sm 6 sg 1572867 dm 5 dg 1048579
+CS sm 6 sg 1572867 d ""
+MB sm 1 tm 2 m initialize(0)
+ME
+MB sm 1 tm 3 m initialize(0)
+ME
+MB sm 1 tm 4 m initialize(0)
+ME
+MB sm 1 tm 5 m initialize(0)
+ME
+MB sm 1 tm 6 m initialize(0)
+CM id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n timer k 13 pe -1
+BS id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n timer k 13 pe 0
+ES t 5
+ME
+
+E # 1 t 5 m 6 ce 0 msg 2
+CM id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token pe -1
+- INFO:Node 4: 1 & 15 = 1
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 1
+SH sm 6 sg 1572864 pd 0.55104848667
+ES t 5.55104848667
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 1 cid 4
+- INFO:Node 4 send the token through port 0
+
+E # 2 t 5.55104848667 m 2 ce 1 msg 3
+- INFO:Receiving token from port 3
+- INFO:Node 0: 1 & 7 = 1
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 2
+SH sm 2 sg 1572864 pd 0.898560388484
+ES t 6.449608875154
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 2 cid 4
+- INFO:Node 0 send the token through port 0
+
+E # 3 t 6.449608875154 m 3 ce 2 msg 3
+- INFO:Receiving token from port 0
+- INFO:Node 1: 1 & 14 = 0
+- INFO:Node 1: 2 & 14 = 2
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 3
+SH sm 3 sg 1572865 pd 0.977006426393
+ES t 7.426615301547
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 3 cid 4
+- INFO:Node 1 send the token through port 1
+
+E # 4 t 7.426615301547 m 4 ce 3 msg 3
+- INFO:Receiving token from port 1
+- INFO:Node 2: 1 & 13 = 1
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 4
+SH sm 4 sg 1572864 pd 0.923223131471
+ES t 8.349838433018
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 4 cid 4
+- INFO:Node 2 send the token through port 0
+
+E # 5 t 8.349838433018 m 2 ce 4 msg 3
+- INFO:Receiving token from port 1
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 11 pe 5
+SH sm 2 sg 1572865 pd 1.859604212075
+ES t 10.209442645093
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 11 pe 5 cid 4
+- INFO:Node 0 send the token through port 1
+
+E # 6 t 10.209442645093 m 4 ce 5 msg 3
+- INFO:Receiving token from port 0
+- INFO:Node 2: 1 & 12 = 0
+- INFO:Node 2: 2 & 12 = 0
+- INFO:Node 2: 4 & 12 = 4
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 6
+SH sm 4 sg 1572866 pd 0.058384669093
+ES t 10.267827314186
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 6 cid 4
+- INFO:Node 2 send the token through port 2
+
+E # 7 t 10.267827314186 m 5 ce 6 msg 3
+- INFO:Receiving token from port 2
+- INFO:Node 3: 1 & 11 = 1
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 7
+SH sm 5 sg 1572864 pd 0.787201139982
+ES t 11.055028454168
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 7 cid 4
+- INFO:Node 3 send the token through port 0
+
+E # 8 t 11.055028454168 m 2 ce 7 msg 3
+- INFO:Receiving token from port 2
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 11 pe 8
+SH sm 2 sg 1572866 pd 1.951545335884
+ES t 13.006573790052
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 11 pe 8 cid 4
+- INFO:Node 0 send the token through port 2
+
+E # 9 t 13.006573790052 m 5 ce 8 msg 3
+- INFO:Receiving token from port 0
+- INFO:Node 3: 1 & 10 = 0
+- INFO:Node 3: 2 & 10 = 2
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 9
+SH sm 5 sg 1572865 pd 0.575519196883
+ES t 13.582092986935
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 9 cid 4
+- INFO:Node 3 send the token through port 1
+
+E # 10 t 13.582092986935 m 3 ce 9 msg 3
+- INFO:Receiving token from port 2
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 11 pe 10
+SH sm 3 sg 1572866 pd 0.485128163722
+ES t 14.067221150657
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 11 pe 10 cid 4
+- INFO:Node 1 send the token through port 2
+
+E # 11 t 14.067221150657 m 5 ce 10 msg 3
+- INFO:Receiving token from port 1
+- INFO:Node 3: 1 & 8 = 0
+- INFO:Node 3: 2 & 8 = 0
+- INFO:Node 3: 4 & 8 = 0
+- INFO:Node 3: 8 & 8 = 8
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 11
+SH sm 5 sg 1572867 pd 0.649446348251
+ES t 14.716667498908
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 11 cid 4
+- INFO:Node 3 send the token through port 3
+
+E # 12 t 14.716667498908 m 6 ce 11 msg 3
+- INFO:Receiving token from port 3
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 11 pe 12
+SH sm 6 sg 1572867 pd 1.568896117623
+ES t 16.285563616531
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 11 pe 12 cid 4
+- INFO:Node 4 send the token through port 3
+
+E # 13 t 16.285563616531 m 5 ce 12 msg 3
+- INFO:Receiving token from port 3
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 12 pe 13
+SH sm 5 sg 1572866 pd 3.314912279928
+ES t 19.600475896459
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 12 pe 13 cid 4
+- INFO:Node 3 send the token through port 2
+
+E # 14 t 19.600475896459 m 4 ce 13 msg 3
+- INFO:Receiving token from port 2
+- INFO:Node 2: 1 & 8 = 0
+- INFO:Node 2: 2 & 8 = 0
+- INFO:Node 2: 4 & 8 = 0
+- INFO:Node 2: 8 & 8 = 8
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 14
+SH sm 4 sg 1572867 pd 0.318356140842
+ES t 19.918832037301
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 14 cid 4
+- INFO:Node 2 send the token through port 3
+
+E # 15 t 19.918832037301 m 6 ce 14 msg 3
+- INFO:Receiving token from port 2
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 11 pe 15
+SH sm 6 sg 1572866 pd 0.483602104948
+ES t 20.402434142249
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 11 pe 15 cid 4
+- INFO:Node 4 send the token through port 2
+
+E # 16 t 20.402434142249 m 4 ce 15 msg 3
+- INFO:Receiving token from port 3
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 12 pe 16
+SH sm 4 sg 1572865 pd 1.038159300664
+ES t 21.440593442913
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 12 pe 16 cid 4
+- INFO:Node 2 send the token through port 1
+
+E # 17 t 21.440593442913 m 3 ce 16 msg 3
+- INFO:Receiving token from port 1
+- INFO:Node 1: 1 & 8 = 0
+- INFO:Node 1: 2 & 8 = 0
+- INFO:Node 1: 4 & 8 = 0
+- INFO:Node 1: 8 & 8 = 8
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 17
+SH sm 3 sg 1572867 pd 0.353159139138
+ES t 21.793752582051
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 10 pe 17 cid 4
+- INFO:Node 1 send the token through port 3
+
+E # 18 t 21.793752582051 m 6 ce 17 msg 3
+- INFO:Receiving token from port 1
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 11 pe 18
+SH sm 6 sg 1572865 pd 2.223524422036
+ES t 24.017277004087
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 11 pe 18 cid 4
+- INFO:Node 4 send the token through port 1
+
+E # 19 t 24.017277004087 m 3 ce 18 msg 3
+- INFO:Receiving token from port 3
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 12 pe 19
+SH sm 3 sg 1572864 pd 1.255930758047
+ES t 25.273207762134
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 12 pe 19 cid 4
+- INFO:Node 1 send the token through port 0
+
+E # 20 t 25.273207762134 m 2 ce 19 msg 3
+- INFO:Receiving token from port 0
+BS id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 12 pe 20
+SH sm 2 sg 1572867 pd 1.878964054203
+ES t 27.152171816337
+CL id 3 tid 3 eid 3 etid 3 c omnetpp::cMessage n token k 12 pe 20 cid 4
+- INFO:Node 0 send the token through port 3
+
+E # 21 t 27.152171816337 m 6 ce 20 msg 3
+- INFO:Receiving token from port 0
+SE e 0 c 13 m "No more events, simulation completed -- at t=27.152171816337s, event #21"
