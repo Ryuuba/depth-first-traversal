@@ -1,5 +1,5 @@
 E # 0 t 0 m 1 ce -1 msg -1
-SB v 1286 rid RandomGraph-0-20210110-00:35:55-13337 b 1000
+SB v 1286 rid RandomGraph-0-20210113-16:29:08-12934 b 1000
 KF p -1 c "" s ""
 MC id 1 c omnetpp::cModule t ds_ex3_dfs.simulations.RandomGraph n RandomGraph cm 1
 MS id 1 d bgb=300,300
@@ -111,3 +111,12 @@ MS id 3 d "t=Status: unvisited;i=device/laptop"
 MS id 4 d "t=Status: unvisited;i=device/laptop"
 MS id 5 d "t=Status: unvisited;i=device/laptop"
 MS id 6 d "t=Status: initiator;i=device/laptop"
+
+E # 1 t 5 m 6 ce 0 msg 0
+CM id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n token pe -1
+- INFO:Node 4 send the token through port 3
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n token k 10 pe 1
+SH sm 6 sg 1572867 pd 1.568896117623
+ES t 6.568896117623
+CL id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n token k 10 pe 1 cid 2
+MS id 6 d "t=Status: visited;i=device/laptop"

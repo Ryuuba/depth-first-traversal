@@ -8,7 +8,7 @@ DFTraversal::DFTraversal()
   , emisor(-1)
   , token(nullptr)
   , timer(nullptr)
-  , unvisitedNeighbors(0) {
+  , unvisitedNeighbors(nullptr) {
 
 }
 
@@ -23,7 +23,6 @@ void DFTraversal::initialize() {
     scheduleAt(startTime, timer);
     status = Status::INITIATOR;
   }
-  WATCH(unvisitedNeighbors);
   WATCH(status);
 }
 
@@ -31,7 +30,8 @@ void DFTraversal::handleMessage(omnetpp::cMessage* recvMsg) {
   if (status == Status::INITIATOR) {
     if (recvMsg->getKind() == MsgKind::TIMER) { //A1
       int neighborhoodSize = gateSize("port$o");
-      unvisitedNeighbors = (1 << neighborhoodSize) - 1;
+      unvisitedNeighbors = std::make_unique<BitArray>(neighborhoodSize);
+      WATCH(*unvisitedNeighbors);
       initiator = true;
       token = new omnetpp::cMessage("token");
       visit(token);
@@ -42,10 +42,11 @@ void DFTraversal::handleMessage(omnetpp::cMessage* recvMsg) {
   else if (status == Status::UNVISITED) {
     if (recvMsg->getKind() == MsgKind::TOKEN) {
       int neighborhoodSize = gateSize("port$o");
-      unvisitedNeighbors = (1 << neighborhoodSize) - 1;
+      unvisitedNeighbors = std::make_unique<BitArray>(neighborhoodSize);
+      WATCH(*unvisitedNeighbors);
       emisor = recvMsg->getArrivalGate()->getIndex();
+      unvisitedNeighbors->reset(emisor); // U - {emisor}
       EV_INFO << "Receiving token from port " << emisor << '\n';
-      unvisitedNeighbors -= (1 << emisor);
       visit(recvMsg);
     }
     else
@@ -54,8 +55,7 @@ void DFTraversal::handleMessage(omnetpp::cMessage* recvMsg) {
   else if (status == Status::VISITED) {
     if (recvMsg->getKind() == MsgKind::TOKEN) {
       int senderPort = recvMsg->getArrivalGate()->getIndex();
-      EV_INFO << "Receiving token from port " << senderPort << '\n';
-      unvisitedNeighbors -= (1 << senderPort);
+      unvisitedNeighbors->reset(senderPort);
       recvMsg->setKind(MsgKind::BACKEDGE);
       recvMsg->setName("backedge");
       send(recvMsg, "port$o", senderPort);
@@ -75,29 +75,16 @@ void DFTraversal::handleMessage(omnetpp::cMessage* recvMsg) {
 }
 
 
-//TODO: save the last contacted neighbor as well as the mask to optimize
-//the extraction on an unvisited neighbor
 void DFTraversal::visit(omnetpp::cMessage* msg) {
-  uint64_t mask = 1;
-  const int neighborhoodSize = gateSize("port$o");
-  if (unvisitedNeighbors > 0) {
-    int nextNeighbor = 0;
+  if (unvisitedNeighbors->decimal() > 0) {
     // Extract a neighbor from unvisitedNeighbors
-    for (int i = 0; i < neighborhoodSize; i++) {
-      if (unvisitedNeighbors & mask) {
-        nextNeighbor = i;
-        unvisitedNeighbors -= mask;
-        mask = mask << 1;
-        break;
-      }
-      else
-        mask = mask << 1;
-    }
+    int nextNeighbor = unvisitedNeighbors->find_msone();
+    unvisitedNeighbors->reset(nextNeighbor);
+    EV_INFO << "Node " << getIndex() << " send the token through port "
+            << nextNeighbor << '\n';
     msg->setKind(MsgKind::TOKEN);
     msg->setName("token");
     send(msg, "port$o", nextNeighbor);
-    EV_INFO << "Node " << getIndex() << " send the token through port "
-            << nextNeighbor << '\n';
     status = Status::VISITED;
   }
   else {

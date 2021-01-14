@@ -19,6 +19,9 @@
 #include <omnetpp.h>
 #include <cstdint>
 #include <string>
+#include <memory>
+
+#include "BitArray.h"
 
 class DFTraversal : public omnetpp::cSimpleModule {
   public:
@@ -50,7 +53,7 @@ class DFTraversal : public omnetpp::cSimpleModule {
     /** @brief The set of unvisited neighbors (64 neighbors at max). Think
      * this integer as a boolean array. 
      */
-    uint64_t unvisitedNeighbors;
+    std::unique_ptr<BitArray> unvisitedNeighbors;
     // /** @brief The mask to access the index the last contacted neighbor */
     // uint64_t mask;
     // /** @brief The size of the neighborhood */
